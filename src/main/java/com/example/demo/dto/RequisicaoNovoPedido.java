@@ -1,6 +1,7 @@
 package com.example.demo.dto;
 
 import com.example.demo.model.Pedido;
+import com.example.demo.model.StatusPedido;
 
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
@@ -8,7 +9,7 @@ import javax.validation.constraints.NotBlank;
 
 public class RequisicaoNovoPedido {
 
-    @NotBlank @Min(5) @Max(20)
+    @NotBlank
     private String nomeProduto;
     @NotBlank
     private String urlProduto;
@@ -54,6 +55,7 @@ public class RequisicaoNovoPedido {
         pedido.setNomeProduto(nomeProduto);
         pedido.setUrlImagem(urlImagem);
         pedido.setUlrProduto(urlProduto);
+        pedido.setStatus(StatusPedido.AGUARDANDO);
         return pedido;
     }
 }

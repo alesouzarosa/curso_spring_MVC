@@ -32,7 +32,7 @@ public class PedidosController {
         }
         Pedido pedido = requisicao.toPedido();
         pedidoRepository.save(pedido);
-        return  "pedido/formulario";
+        return  "redirect:/home";
     }
 
 }
