@@ -2,19 +2,26 @@ package com.example.demo.dto;
 
 import com.example.demo.model.Pedido;
 
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+
 public class RequisicaoNovoPedido {
 
-    private String nomePrduto;
+    @NotBlank @Min(5) @Max(20)
+    private String nomeProduto;
+    @NotBlank
     private String urlProduto;
+    @NotBlank
     private String urlImagem;
     private String descricao;
 
-    public String getNomePrduto() {
-        return nomePrduto;
+    public String getNomeProduto() {
+        return nomeProduto;
     }
 
-    public void setNomePrduto(String nomePrduto) {
-        this.nomePrduto = nomePrduto;
+    public void setNomeProduto(String nomeProduto) {
+        this.nomeProduto = nomeProduto;
     }
 
     public String getUrlProduto() {
@@ -44,7 +51,7 @@ public class RequisicaoNovoPedido {
     public Pedido toPedido() {
         Pedido pedido = new Pedido();
         pedido.setDescricao(descricao);
-        pedido.setNomeProduto(nomePrduto);
+        pedido.setNomeProduto(nomeProduto);
         pedido.setUrlImagem(urlImagem);
         pedido.setUlrProduto(urlProduto);
         return pedido;
