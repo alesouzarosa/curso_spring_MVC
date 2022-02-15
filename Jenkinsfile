@@ -13,8 +13,7 @@ pipeline {
     }
     stages {
         stage('Build') {
-            steps {
-                milestone(2)
+            steps {                
                 withMaven(maven: 'Maven-3.6.0') {
                     sh "mvn clean package"
                 }
