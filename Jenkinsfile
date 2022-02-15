@@ -5,6 +5,12 @@ pipeline {
             args '-v /root/.m2:/root/.m2'
         }
     }
+    triggers {
+        pollSCM('H/2 * * * *')
+    }
+    options {
+        buildDiscarder(logRotator(numToKeepStr: '1'))
+    }
     stages {
         stage('Build') {
             steps {
