@@ -7,10 +7,8 @@ pipeline {
     }
     stages {
         stage('Build') {
-            steps {                
-                withMaven(maven: 'Maven-3.8.1') {
-                    sh "mvn clean package"
-                }
+            steps {
+                sh 'mvn -B -DskipTests clean package'
             }
         }
     }
