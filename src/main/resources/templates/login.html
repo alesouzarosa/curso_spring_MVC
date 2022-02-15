@@ -1,10 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
+<html>
+<head th:replace="~{base :: head}"></head>
 <body>
-$END$
+
+<div th:replace="~{base :: Logo}"></div>
+
+<div class="container">
+    <div th:replace="~{base :: titulo('Login')}"></div>
+    <div class="card mb-3" >
+        <form th:action="@{/login}" method="post">
+            <div class="form-froup">
+                <label for="username">Usuário</label>
+                <input name="username"  class="form-control"  placeholder="usuário"/>
+            </div>            <div class="form-froup">
+                <label for="password">Senha</label>
+                <input type="password" name="password"  class="form-control"  placeholder="Senha"/>
+            </div>
+            <button class="btn btn-primary" type="submit">Login</button>
+        </form>
+    </div>
+</div>
+
 </body>
 </html>

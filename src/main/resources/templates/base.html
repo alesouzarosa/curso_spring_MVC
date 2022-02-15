@@ -16,8 +16,12 @@
 </head>
 
 <div th:fragment="Logo" class="Logo-container mb-3 p-3 d-flex justify-content-between">
-    <a href="/home"><span class="Logo">mudi</span></a>
-    <span class="mt-3">login</span>
+
+    <span class="Logo"><a href="/home">mudi</a></span>
+    <span class="mt-3">
+        <a href="/login"  class="test-light" sec:authorize="!isAuthenticated()" >login</a>
+        <a href="/logout" class="test-light" sec:authorize="isAuthenticated()" >logout</a>
+    </span>
 </div>
 
 <div th:fragment="titulo(valor)" class="jumbotron mb-0">
